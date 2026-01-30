@@ -13,3 +13,5 @@ These drivers deliver their output to stout, and do not report measurement units
   2) ina228_power: watts
   3) ina228_current: milliamps
   4) ina228_temp: degree Celsius
+
+The drivers are hard-coded to assume the INA228 is found at I2C address 0x40, but if the INA228 is configured for another I2C address you may change the standard address in line 3 of each driver.
