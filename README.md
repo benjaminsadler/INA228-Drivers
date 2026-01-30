@@ -9,7 +9,7 @@ Each driver performs three basic functions: they query the INA228 using the 'i2c
 
 These drivers do not report measurement units; the implied units are:
 
-  ina228_vbus: volts
-  ina228_power: watts
-  ina228_current: milliamps
-  ina228_temp: degree Celsius
+  *ina228_vbus: volts
+  *ina228_power: watts
+  *ina228_current: milliamps
+  *ina228_temp: degree Celsius
