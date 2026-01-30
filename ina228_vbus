@@ -1,0 +1,15 @@
+#!/bin/bash
+
+bytes=(`i2ctransfer -y 1 w1@0x40 0x05 r3`)
+
+byte0=$((${bytes[0]} << 16))
+byte1=$((${bytes[1]} << 8))
+byte2=${bytes[2]}
+
+result=$(( $byte0 | $byte1 | $byte2 ))
+vbus_bin=$(( $result >> 4 ))
+
+float_vbus=$(echo "$vbus_bin * .0001953125" | bc)
+
+printf "%.2f" "$float_vbus"
+ 

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+bytes=(`i2ctransfer -y 1 w1@0x40 0x07 r3`)
+
+byte0=$((${bytes[0]} << 16))
+byte1=$((${bytes[1]} << 8))
+byte2=${bytes[2]}
+
+result=$(( $byte0 | $byte1 | $byte2 ))
+
+float_curr=$(echo "$result * 0.00119209289551" | bc)
+
+printf "%.2f" "$float_curr"
+ 
