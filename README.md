@@ -7,7 +7,7 @@ These four drivers provide quick measurements of four different values (bus volt
 
 Each driver performs three basic functions: they query the INA228 using the 'i2ctransfer' function from the i2c-tools package, then repack the three bytes response into a single 24-bit variable, and finally they calibrate the rough float value into a physical measurement by multiplying by appropriate conversion factors.  The bit packing process and conversion factors were replicated from the Adafruit python package.
 
-These drivers do not report measurement units; the implied units are:
+These drivers deliver their output to stout, and do not report measurement units nor append a newline at the end (but you may easily add these).  The implied units are:
 
   1) ina228_vbus: volts
   2) ina228_power: watts
